@@ -1,69 +1,55 @@
-# Arrow Bloom — Google Play Store Launch Readiness Checklist
+# Arrow Bloom — Google Play launch checklist
 
-**Status**: NOT READY (Phase: Gameplay Complete $\to$ Store Release Preparation)  
-**Package**: `com.aweagle.arrowbloom`  
-**Target Tracks**: Internal Testing $\to$ Closed Testing $\to$ Production  
-**Last Updated**: 19 Oct 2026
+**Status (20 Oct 2026):** build is publish-ready on branch `release/2026-10-20` of `ArrowBloom`
+(1.0.0, versionCode 1). What remains is console work and the closed test.
+**Package:** `com.aweagle.arrowbloom` · **Tracks:** internal → closed (12 testers / 14 days) → production
 
----
+## 1. What the build already satisfies
 
-## 1. Summary Assessment
-- **Gameplay & Mechanics**: **READY (100%)** — Core puzzle engine, DAG generator, Compose Canvas renderer, animations, HUD, combos, undo, hints, victory dialog, level progression, and local persistence are verified on real emulator.
-- **Store & Release Pipeline**: **NOT READY (Blocked on 4 Items)** — Requires release keystore, `.aab` signing, store visual assets, Play Console listing creation, and haptics/audio/monetization polish.
+| Requirement | State |
+|---|---|
+| Android App Bundle, signed | `./gradlew :app:bundleRelease` with `keystore.properties` at the repo root (same upload key as Block Bloom, `aw-eagle-upload.jks`). Output: `~/.build-arrowbloom/app/outputs/bundle/release/app-release.aab` |
+| Target API | **compileSdk / targetSdk 36.** Play requires API 36 for new apps and updates since 31 Aug 2026 (the 19 Oct checklist said 35 was fine; it is not) |
+| R8 / shrinking | on, with line numbers kept for readable traces |
+| Permissions | `VIBRATE` only. No INTERNET: nothing leaves the device |
+| Data safety | "No data collected, no data shared" is true for 1.0.0. The app has no analytics, ads or billing SDK |
+| Privacy policy | reuse `https://ajay-waghmare.github.io/app-policy/privacy-policy.html`; add one line naming Arrow Bloom before submitting |
+| Languages | en, de, es, ja, ko, pt-BR, tr, with a per-app language picker on Android 13+ |
+| Orientation | portrait only, declared and documented |
+| Lint | 0 errors (`:app:lintDebug`, `abortOnError = true`) |
+| Tests | 50 unit tests: every generated level 1–140 is proven solvable; scoring, gardens, daily, streak, resume codec, prefs |
+| Emulator walkthrough | level 1 → outcome → level 2 → resume after a force-stop → all six gardens → Daily Bloom cleared → settings → German; no crashes |
 
----
+## 2. Console steps, in order (all Ajay; the first release of a new app cannot be created by API)
 
-## 2. Mandatory Technical Requirements (Google Play Policy)
+1. Play Console → Create app: name **Arrow Bloom**, Game, Free, default language en-US.
+2. Store listing: title / short / full description for the 8 locales are in `ArrowBloom/store/listing_v1.json`
+   (push them later with `play-listings-set-multi.js` once the app exists); icon `store/icon-512.png`;
+   feature graphic `store/feature-1024x500.png`; phone screenshots `store/screenshots/*.png` (1080×1920).
+3. App content: privacy policy URL; **Ads: No** (true for 1.0.0; change it in the same release that adds AdMob);
+   Data safety: no collection; content rating questionnaire (IARC, puzzle, no violence); target audience 13+;
+   not Designed for Families; app access: everything available without a login.
+4. Upload the AAB to **Internal testing** first, install from the Play link on a real phone, play three gardens
+   and a Daily Bloom.
+5. **Closed testing** with at least 12 opted-in testers for 14 continuous days: this is the production gate
+   for a new app on this account. Start it the day the internal build is fine; keep shipping updates to the
+   same closed track while the clock runs (updates do not reset it).
+6. Apply for production access when the console says the gate is met, then roll out to production staged.
 
-| Item | Requirement | Current State | Action Needed |
-| :--- | :--- | :--- | :--- |
-| **Artifact Format** | Android App Bundle (`.aab`) | Only debug `.apk` built | Run `./gradlew bundleRelease` |
-| **Release Signing** | RSA 2048+ or EC Key with v2/v3 signature | Unsigned / Debug keystore only | Generate `arrowbloom-release.jks`, configure `keystore.properties` |
-| **Minification / ProGuard** | R8 code & resource shrinking enabled | Configured in `app/build.gradle.kts` | Verify release build outputs clean binary (~7–9 MB) |
-| **Target SDK** | Android 15 (API 35) | `targetSdk = 35` | Compliant with Google Play 2025/2026 requirements |
-| **Privacy Policy** | Active HTTP 200 URL declaring data handling | Existing policy at `https://ajay-waghmare.github.io/app-policy/privacy-policy.html` | Reuse verified AW EagleCraft privacy policy |
+## 3. Things never to do (learned on Block Bloom)
 
----
+- Never claim "no ads" or "no in-app purchases" in the listing, even while true: it becomes a policy
+  problem the day monetisation ships. The listing copy avoids both claims.
+- Never reuse Block Bloom's AdMob app ID or ad units; when ads come, Arrow Bloom gets its own AdMob app
+  (the `app-ads.txt` on ajay-waghmare.github.io already covers the publisher).
+- Never put Firebase in with Block Bloom's `google-services.json`; create a separate Firebase project
+  (or at least a separate app) so the two games' analytics never mix.
+- Add analytics (the `Analytics` seam is in the code) BEFORE monetising, not after.
+- Set the Play Console contact website and the AdMob consent messages on day one of ads.
 
-## 3. Mandatory Google Play Console Listing Assets
+## 4. After launch (1.1 and beyond)
 
-| Asset | Specifications | Status |
-| :--- | :--- | :--- |
-| **High-Res App Icon** | $512 \times 512$ PNG, 32-bit color, max 1 MB | Pending export from vector drawable |
-| **Feature Graphic** | $1024 \times 500$ PNG or JPEG, max 15 MB | Pending creation |
-| **Phone Screenshots** | At least 4 screenshots, 16:9 or 9:16 aspect ratio (min 1080px) | **Captured** (4 real 1080x2400 Pixel 8 gameplay screenshots ready) |
-| **App Title** | Arrow Bloom (max 30 chars) | Ready |
-| **Short Description** | Clean, addictive arrow escape logic puzzle (max 80 chars) | Ready |
-| **Full Description** | Formatted store listing highlighting offline play, relaxing neon visuals, infinite levels | Ready |
-
----
-
-## 4. In-App Polish & Monetization Checklist (Pre-Launch)
-
-- [ ] **Haptic Feedback**:
-  - Soft vibration click on successful arrow tap.
-  - Double warning buzz on blocked collision shake.
-- [ ] **Audio**:
-  - Subtle aerodynamic whoosh on arrow launch.
-  - Luminous chime on level completion.
-  - Mute audio toggle in settings/header.
-- [ ] **AdMob Integration**:
-  - Banner ad on non-gameplay screens or bottom footer safe zone.
-  - Rewarded ad: "Watch an ad to get +3 hints".
-  - Reuse Block Bloom AdMob app ID or set up dedicated Arrow Bloom ad unit IDs.
-
----
-
-## 5. Deployment Step Sequence
-
-```mermaid
-flowchart TD
-    A["Generate Release Keystore & keystore.properties"] --> B["Configure app/build.gradle.kts signingConfigs.release"]
-    B --> C["Build Release Bundle: ./gradlew bundleRelease"]
-    C --> D["Export 512x512 Icon & 1024x500 Feature Graphic"]
-    D --> E["Create App in Google Play Console (com.aweagle.arrowbloom)"]
-    E --> F["Complete Policy Questionnaires (Data Safety, Content Rating)"]
-    F --> G["Upload .aab to Internal Testing Track"]
-    G --> H["Verify on Real Device via Play Store Internal Track"]
-    H --> I["Roll out to Production"]
-```
+- Firebase Analytics + Crashlytics behind an `ANALYTICS_ENABLED` flag (same pattern as Block Bloom, debug builds dark).
+- Rewarded ads only, opt-in: "+3 hints" and "skip this level"; banner and interstitial behind Remote Config
+  dials, default off.
+- Store listing experiments for the icon and the first screenshot.

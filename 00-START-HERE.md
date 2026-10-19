@@ -35,3 +35,12 @@ Created 19 Oct 2026.
 ## 3. Repositories
 - **Codebase**: `ArrowBloom` (`https://github.com/ajay-waghmare/ArrowBloom.git`)
 - **Engineering Memory**: `arrowbloom-notes` (`https://github.com/ajay-waghmare/arrowbloom-notes.git`)
+
+---
+
+## 4. State as of 20 Oct 2026
+- **1.0.0 is publish-ready** on branch `release/2026-10-20` (compileSdk / targetSdk 36, versionCode 1). `main` is still the 19 Oct scaffold until Ajay merges.
+- Build output lives in `~/.build-arrowbloom/app`; the signed bundle is `outputs/bundle/release/app-release.aab`. Signing needs `keystore.properties` at the repo root (gitignored, never committed).
+- Store kit is in the code repo under `store/` (icon, feature graphic, screenshots, `listing_v1.json`).
+- What ships and what does not: see `02-PLAY-STORE-LAUNCH-CHECKLIST.md`. Why it is not a clone: `03-COPYRIGHT-AND-DIFFERENTIATION.md`.
+- The "Inspiration" in section 1 is market context only; nothing of that game's art, text, sounds or levels is in this repo.

@@ -1,21 +1,22 @@
 # Arrow Bloom — Engineering & Decision Memory
 
-Persistent project memory, architecture decisions, and daily engineering journals for **Arrow Bloom** (`com.aweagle.arrowbloom`).
+Persistent project memory, architecture decisions, and daily engineering journals for **Arrow Bloom**
+(`com.aweagle.arrowbloom`), a calm arrow-escape logic puzzle by AW EagleCraft: zero backend, 100% offline,
+Kotlin + Jetpack Compose.
 
-Inspired by the high-engagement, 50M+ download logic puzzle *Arrow Puzzle: Tap Puzzle Games* by Easybrain, built as a zero-backend, 100% offline-first Android native mobile game.
-
----
-
-## Repository Map
+## Repository map
 
 ```
 arrowbloom-notes/
-├── README.md                          <- Project overview & index
-├── 00-START-HERE.md                   <- Architecture & tech stack baseline
-├── 01-architecture/
-│   ├── 01-game-design-and-mechanics.md <- Mechanics, raycasting, and dopamine loop
-│   └── 02-solvability-engine.md       <- Backward generation & DAG topological solver
+├── README.md                              <- this index
+├── 00-START-HERE.md                       <- identity, tech decisions, repos
+├── 02-PLAY-STORE-LAUNCH-CHECKLIST.md      <- what the build satisfies, console steps, never-do list
+├── 03-COPYRIGHT-AND-DIFFERENTIATION.md    <- what is protected, what makes this its own game
 └── journal/
-    ├── TEMPLATE.md                    <- Daily journal template
-    └── 2026-10-19.md                  <- Project kickoff & technical baseline
+    ├── TEMPLATE.md
+    ├── 2026-10-19.md                      <- kickoff: engine, DAG generator, first Compose canvas
+    └── 2026-10-20.md                      <- 1.0.0 built: gardens, long arrows, daily, music, 7 languages
 ```
+
+Code: `https://github.com/ajay-waghmare/ArrowBloom` (branch `release/2026-10-20` holds 1.0.0; `main` is the
+19 Oct scaffold until Ajay merges). Daily entries go in `journal/YYYY-MM-DD.md`, committed on `journal`.
