@@ -2,7 +2,7 @@
 
 Written for: Claude in Chrome, working in Ajay's Play Console with Ajay watching. Ajay does the steps marked **AJAY**.
 
-**Status 20 Oct evening:** Parts 1, 3, 4, 7 done; Part 2 done through the API (versionCode 1 is a draft on Internal testing, not rolled out); Part 5 done except Privacy policy, Target audience and Data safety, which wait for the privacy page; Part 6 not needed (service account already has access). Remaining = Part 8.
+**Status 20 Oct, 11:45:** Parts 1-8 done (build 1 live on internal and closed testing, closed release in review). Build 2 is staged as a draft on both tracks: Part 9 rolls it out.
 
 ## Facts you work with
 - App: **Arrow Bloom**, package `com.aweagle.arrowbloom`, a free offline puzzle game. versionCode 1, versionName 1.0.0, targetSdk 36.
@@ -83,6 +83,13 @@ Users and permissions → open `play-publisher@avid-airway-498216-e5.iam.gservic
 4. If the Dashboard carries the testing requirement: Testing → **Closed testing** → create a track (name `Closed Alpha`), tester list with at least 12 Gmail addresses or a Google Group, promote the same bundle, **Send for review**, then keep 12 testers opted in continuously for 14 days. After 14 days: Dashboard → **Apply for production** and answer the questionnaire.
 5. If the Dashboard does NOT carry it: Production → create release from the same bundle → Send for review → staged rollout 20% → 100%.
 6. Merge `release/2026-10-20` into `main` in the ArrowBloom repo once the bundle is uploaded (only Ajay merges to main).
+
+## Part 9 — build 2 (versionCode 2), staged 20 Oct by API
+Build 2 (the line-arrow game) is a DRAFT "1.0.0 (2)" on Internal testing AND on Closed testing (track `alpha`, "Closed Alpha"). Build 1 stays live on both until the drafts are rolled out.
+1. Test and release → Testing → Internal testing → Releases → the draft "1.0.0 (2)" → Edit release → Next → report every error and warning → ask "GO?" → on GO: Save and publish.
+2. Testing → Closed testing → Closed Alpha → Releases → the draft "1.0.0 (2)" → Edit release → Next → report errors and warnings → ask "GO?" → on GO: Save, then Publishing overview → Send for review (ask "GO?" again; this sends build 2, the new listing text and the new graphics for review together).
+3. Grow users → Store presence → Main store listing: confirm the new icon (ink and green arrows), the light feature graphic and six light screenshots; report any error flag.
+4. Testers tab of Closed Alpha → copy the opt-in links and report them.
 
 ## Report-back format (one message per part)
 ```

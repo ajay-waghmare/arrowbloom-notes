@@ -1,7 +1,8 @@
 # Arrow Bloom — Google Play launch checklist
 
-**Status (20 Oct 2026):** build is publish-ready on branch `release/2026-10-20` of `ArrowBloom`
-(1.0.0, versionCode 1). What remains is console work and the closed test.
+**Status (20 Oct 2026, 11:45):** build 2 (1.0.0, versionCode 2, the line-arrow game) is on branch `release/2026-10-20-line-arrows`
+of `ArrowBloom` and staged as a draft on internal and closed testing. Console setup is complete; what remains is
+rolling out build 2 and the 14-day closed test.
 **Package:** `com.aweagle.arrowbloom` · **Tracks:** internal → closed (12 testers / 14 days) → production
 
 ## 1. What the build already satisfies
@@ -17,8 +18,8 @@
 | Languages | en, de, es, ja, ko, pt-BR, tr, with a per-app language picker on Android 13+ |
 | Orientation | portrait only, declared and documented |
 | Lint | 0 errors (`:app:lintDebug`, `abortOnError = true`) |
-| Tests | 50 unit tests: every generated level 1–140 is proven solvable; scoring, gardens, daily, streak, resume codec, prefs |
-| Emulator walkthrough | level 1 → outcome → level 2 → resume after a force-stop → all six gardens → Daily Bloom cleared → settings → German; no crashes |
+| Tests | 50 unit tests: levels 1–160 well-formed and solvable, shapes, depth, hearts and fail, hint, resume codec v2, daily |
+| Emulator walkthrough | build 2: 29-step debug walkthrough (hints, grid, hearts, fail, shapes, every garden, Daily, German) plus a release-build upgrade test over build 1; no crashes |
 
 ## 2. Console steps, in order (all Ajay; the first release of a new app cannot be created by API)
 

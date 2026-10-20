@@ -38,3 +38,16 @@ the base." Not legal advice; a working rule set for a solo developer.
 | No ads at launch; later rewarded only, opt-in | interstitials between levels |
 
 Keep building on those; never on their art.
+
+## Build 2 (20 Oct 2026): the look now follows the line-arrow genre
+Ajay asked for the look of a specific line-arrow game (white board, dark winding arrows on a dot grid,
+three hearts, a difficulty chip, a hint button with a badge, a # button). Build 2 follows that genre on
+purpose. Where it stands:
+- **Shared, and free to use:** the rule (a line slides out if the way ahead of its head is clear), dark
+  lines on a light board, dots for empty cells, hearts as lives, a hint and a grid toggle. These are
+  conventions of a whole genre, not one game's expression.
+- **Ours:** the name, the icon, the garden journey with its own tints and accents, the petal bloom at the
+  exit edge, the Daily Bloom, generated boards and shapes, the music, all code, all text, all captions.
+- **Rules from here:** never copy another game's level layouts, icon, captions or screenshot compositions;
+  never use their name or wording in the listing; keep our garden colours rather than drifting to a plain
+  white-and-blue copy of their screens; if a publisher complains, change the disputed element at once.
