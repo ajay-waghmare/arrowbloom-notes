@@ -25,7 +25,7 @@ Written for: Claude in Chrome, working in Ajay's Play Console with Ajay watching
 
 ## Part 2 — AJAY: upload the first bundle (file picker, so not you)
 1. Test and release → Testing → **Internal testing** → Create new release.
-2. If asked to choose a signing key: **Use Google-generated key** (default). The same upload keystore as Block Bloom is used; that is allowed, each app gets its own Google-managed signing key.
+2. If asked to choose a signing key: **Use Google-generated key** (default). The same upload keystore as Block Bloom signs the bundle; Google only discourages sharing the app signing key, and with Google-generated keys each app gets its own, so this is fine. The key that signs this first upload becomes the upload key for Arrow Bloom.
 3. Drag in `C:\Users\Ajay.Waghmare\.build-arrowbloom\app\outputs\bundle\release\app-release.aab` (2 MB; it must show versionCode 1, 1.0.0, API 36).
 4. Release name: leave `1 (1.0.0)`. Release notes (en-US): `First release of Arrow Bloom.` Click **Save** (not Next, not rollout). The bundle now exists on the app, which is what the Play Developer API needs before any script can touch the app (Google's rule: the first upload must come through the console).
 
