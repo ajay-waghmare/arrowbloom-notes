@@ -13,7 +13,7 @@
 | R8 / shrinking | on, with line numbers kept for readable traces |
 | Permissions | `VIBRATE` only. No INTERNET: nothing leaves the device |
 | Data safety | "No data collected, no data shared" is true for 1.0.0. The app has no analytics, ads or billing SDK |
-| Privacy policy | reuse `https://ajay-waghmare.github.io/app-policy/privacy-policy.html`; add one line naming Arrow Bloom before submitting |
+| Privacy policy | own page `https://ajay-waghmare.github.io/app-policy/arrow-bloom-privacy.html` (written 20 Oct on branch `arrow-bloom-policy` of the `app-policy` repo; Ajay merges it to `main` so the page is live BEFORE the listing is submitted; the in-app Settings link points at the same URL) |
 | Languages | en, de, es, ja, ko, pt-BR, tr, with a per-app language picker on Android 13+ |
 | Orientation | portrait only, declared and documented |
 | Lint | 0 errors (`:app:lintDebug`, `abortOnError = true`) |
