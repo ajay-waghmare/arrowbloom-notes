@@ -2,6 +2,8 @@
 
 Written for: Claude in Chrome, working in Ajay's Play Console with Ajay watching. Ajay does the steps marked **AJAY**.
 
+**Status 20 Oct evening:** Parts 1, 3, 4, 7 done; Part 2 done through the API (versionCode 1 is a draft on Internal testing, not rolled out); Part 5 done except Privacy policy, Target audience and Data safety, which wait for the privacy page; Part 6 not needed (service account already has access). Remaining = Part 8.
+
 ## Facts you work with
 - App: **Arrow Bloom**, package `com.aweagle.arrowbloom`, a free offline puzzle game. versionCode 1, versionName 1.0.0, targetSdk 36.
 - It has **no ads, no analytics, no login, no in-app purchases and no internet permission**. It collects no data. Every declaration below follows from that; do not answer anything differently.
