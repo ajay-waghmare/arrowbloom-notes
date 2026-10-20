@@ -44,3 +44,11 @@ Created 19 Oct 2026.
 - Store kit is in the code repo under `store/` (icon, feature graphic, screenshots, `listing_v1.json`).
 - What ships and what does not: see `02-PLAY-STORE-LAUNCH-CHECKLIST.md`. Why it is not a clone: `03-COPYRIGHT-AND-DIFFERENTIATION.md`.
 - The "Inspiration" in section 1 is market context only; nothing of that game's art, text, sounds or levels is in this repo.
+
+## 5. From 20 Oct 2026: personal laptop, notes rule
+- Work continues on Ajay's **personal laptop**. Start there with `05-HANDOVER-PERSONAL-LAPTOP.md`
+  (clone, files to carry by hand, tools, proof checks, next steps).
+- **Mandatory:** every decision and every change is written to this repo (journal + affected doc), committed
+  and pushed in the same session, with the code branch. See README.
+- Current build: 4 (1.0.0, versionCode 4) on branch `release/2026-10-20-line-arrows`; drafts on internal and
+  closed testing; build 1 live there. Next free versionCode: 5.
