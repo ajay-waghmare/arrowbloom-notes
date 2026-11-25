@@ -35,12 +35,7 @@ every hint used costs one, a clear keeps at least 1; Perfect = 5. Difficulty chi
   `D:\DevTools\BlockBloom-oct20` (gitignored, same upload key; never print the password). Same build env as
   Block Bloom (JDK 17 + jdkpatch, `dangerouslyDisableSandbox`, `./gradlew --stop` on "different roots").
 
-**Play (20 Oct):** developer 8701670281323658688, app 4972007048514376994. Console setup complete
-(all declarations). Tracks (12:15): internal = vc1 completed + **vc4 DRAFT "1.0.0 (4)"**; alpha (Closed Alpha, testers =
-"Block Bloom Testers" list, 34 users) = vc1 completed (sent for review by browser Claude) + **vc4 DRAFT**.
-vc2 and vc3 were staged and replaced before anyone rolled them out (burnt, never used). Levels: 100 in 5 gardens of 20, then endless Infinite Bloom from 101, plus a Daily Bloom.
-Listing text (8 locales) + new icon/feature graphic/6 screenshots committed by API. 12 testers × 14 days gate
-applies (Dashboard says so). Opt-in link: `https://play.google.com/apps/testing/com.aweagle.arrowbloom`.
+**Play (25 Nov 2026 Audit):** developer `8701670281323658688`, app `4972007048514376994`. `1.0.0 (4)` (`vc4`, `Target SDK 36`, `Supports 16 KB`) is **live on `internal` (1:34 PM) AND `Closed testing - Alpha` (`Available to testers`, 178 countries, 1:50 PM)**. Dashboard gate: **`9/12` opted-in testers** (**3 more needed** before 14-day continuous test clock starts). Opt-in link: `https://play.google.com/apps/testing/com.aweagle.arrowbloom`. Console audit flags: short description `"set them free"` triggers price-word (`"free"`) warning; `0` tablet screenshots; `0` promo video; `Play Integrity 0/7`; `0` pre-launch report. Not yet in Firebase/AdMob/Google Ads (`1.0.0` stays offline/no-ads until Production unlocks; then add dedicated `arrow-bloom` Firebase project + AdMob in `1.1.0`). Active workspace path: `Block Bloom Project\ArrowBloom` + `Block Bloom Project\arrowbloom-notes`. Also synced in `blockbloom-notes/memory/topic_arrow_bloom.md` & `topic_console_audit_2026_11_25.md`.
 
 **Scripts** `ArrowBloom-pub\tools\`: `play-status.js`, `play-stage-draft.js` (one upload → drafts on several
 tracks, keeps live releases, refuses to commit if one would vanish), `play-listings-set-multi.js`,

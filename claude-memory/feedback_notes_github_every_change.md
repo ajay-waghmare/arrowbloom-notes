@@ -11,12 +11,12 @@ metadata:
 Ajay, 20 Oct 2026: "It is mandatory to update the notes in Github for every decision and changes" — said
 while moving Arrow Bloom work to his personal laptop ("Next setup things will be continue in personel laptop").
 
-**Rule:** after each decision or change, in the same session, before ending the turn:
-1. Add it to the notes repo journal (`journal/YYYY-MM-DD.md`, branch `journal`): Arrow Bloom →
-   `arrowbloom-notes` (D:\abc\ArrowBloom-notes); Block Bloom → `blockbloom-notes` (D:\abc\Handover).
-2. Update the doc it affects (runbook, checklist, handover, copyright), and the memory file.
-3. Commit, push, and verify (`git rev-list --left-right --count HEAD...@{u}` = 0 0, `git status` clean).
-4. Push the code branch too. Never merge to main (Ajay merges).
+**Rule (ALL AIs & sessions — Gemini, Claude, Codex, Antigravity, EVERY task):**
+1. **Read First:** Before starting work, read `blockbloom-notes/memory/MEMORY.md` + `topic_arrow_bloom.md` (or `topic_block_bloom.md`), latest `journal/YYYY-MM-DD.md`, and `claude-memory/project_arrow_bloom.md`.
+2. **After each task, decision, audit, or change (before ending turn):**
+   - Add it in clean UTF-8 to `arrowbloom-notes/journal/YYYY-MM-DD.md` (`journal`), `arrowbloom-notes/claude-memory/project_arrow_bloom.md`, `blockbloom-notes/memory/topic_arrow_bloom.md`, and `blockbloom-notes/journal/YYYY-MM-DD.md` (`journal`). For Block Bloom also update `BlockBloom/DAILY_ACTIVITY.md` (`main`) and `blockbloom-notes/memory/topic_block_bloom.md`.
+   - Record exact live state, IDs, blockers, open questions, and concrete next steps so any other AI or session can resume immediately.
+   - Commit, push, and verify (`git rev-list --left-right --count HEAD...@{u}` = 0 0, `git status` clean). Push the active code branch too; never merge Arrow Bloom to `main` (Ajay merges).
 
 **Why:** the personal laptop is now primary for Arrow Bloom; GitHub notes are the only bridge between the two
 laptops and between Claude sessions. Anything not pushed is invisible to the other side.
